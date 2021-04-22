@@ -1,5 +1,5 @@
 # TFG
-Despliegue de escenarios en Kubernetes para aplicar Chaos Computing
+Despliegue de escenarios en Kubernetes para aplicar Chaos Computing en GKE con la herramienta Litmus
 
 ## Desplegar un escenario y experimento.
 
