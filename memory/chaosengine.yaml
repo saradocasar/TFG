@@ -10,7 +10,7 @@ spec:
   engineState: 'active'
   appinfo:
     appns: 'dev'
-    applabel: 'app=front'
+    applabel: 'app=stress'
     appkind: 'deployment'
   chaosServiceAccount: pod-memory-hog-sa
   # It can be delete/retain
