@@ -22,7 +22,7 @@ spec:
           env:
             # Enter the amount of memory in megabytes to be consumed by the application pod
             - name: MEMORY_CONSUMPTION
-              value: '500'
+              value: '600'
 
             - name: TOTAL_CHAOS_DURATION
               value: '60' # in seconds
