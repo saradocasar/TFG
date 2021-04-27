@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: chaos-escenario
+  name: chaos-escenario-ram
   namespace: dev
   labels:
     app: front
