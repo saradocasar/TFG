@@ -1,0 +1,68 @@
+kubectl describe chaosresult ram-chaos-pod-memory-hog -n dev
+Name:         ram-chaos-pod-memory-hog
+Namespace:    dev
+Labels:       app.kubernetes.io/component=experiment-job
+              app.kubernetes.io/part-of=litmus
+              app.kubernetes.io/version=1.13.3
+              chaosUID=7cb4f038-f45e-43fe-91e8-d9ebe53cbb79
+              controller-uid=c033c7e9-5719-4aa9-a647-061cb7741e1e
+              job-name=pod-memory-hog-i38reb
+              name=ram-chaos-pod-memory-hog
+Annotations:  <none>
+API Version:  litmuschaos.io/v1alpha1
+Kind:         ChaosResult
+Metadata:
+  Creation Timestamp:  2021-04-27T10:09:16Z
+  Generation:          8
+  Managed Fields:
+    API Version:  litmuschaos.io/v1alpha1
+    Fields Type:  FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:labels:
+          .:
+          f:app.kubernetes.io/component:
+          f:app.kubernetes.io/part-of:
+          f:app.kubernetes.io/version:
+          f:chaosUID:
+          f:controller-uid:
+          f:job-name:
+          f:name:
+      f:spec:
+        .:
+        f:engine:
+        f:experiment:
+      f:status:
+        .:
+        f:experimentStatus:
+        f:history:
+    Manager:         experiments
+    Operation:       Update
+    Time:            2021-04-27T10:09:16Z
+  Resource Version:  4833467
+  Self Link:         /apis/litmuschaos.io/v1alpha1/namespaces/dev/chaosresults/ram-chaos-pod-memory-hog
+  UID:               1f3b4043-6bc1-4e41-a182-05d5bdbfb3fe
+Spec:
+  Engine:      ram-chaos
+  Experiment:  pod-memory-hog
+Status:
+  Experiment Status:
+    Fail Step:                 N/A
+    Phase:                     Completed
+    Probe Success Percentage:  100
+    Verdict:                   Pass
+  History:
+    Failed Runs:   3
+    Passed Runs:   1
+    Stopped Runs:  0
+Events:
+  Type     Reason   Age   From                         Message
+  ----     ------   ----  ----                         -------
+  Normal   Awaited  48m   pod-memory-hog-le4ev9-l9l85  experiment: pod-memory-hog, Result: Awaited
+  Warning  Fail     47m   pod-memory-hog-le4ev9-l9l85  experiment: pod-memory-hog, Result: Fail
+  Normal   Awaited  37m   pod-memory-hog-nxmhfd-txkqk  experiment: pod-memory-hog, Result: Awaited
+  Warning  Fail     36m   pod-memory-hog-nxmhfd-txkqk  experiment: pod-memory-hog, Result: Fail
+  Normal   Awaited  28m   pod-memory-hog-uj8rmx-7xsv6  experiment: pod-memory-hog, Result: Awaited
+  Warning  Fail     27m   pod-memory-hog-uj8rmx-7xsv6  experiment: pod-memory-hog, Result: Fail
+  Normal   Awaited  49s   pod-memory-hog-i38reb-54mjc  experiment: pod-memory-hog, Result: Awaited
+  Normal   Pass     41s   pod-memory-hog-i38reb-54mjc  experiment: pod-memory-hog, Result: Pass
