@@ -5,16 +5,16 @@ metadata:
   name: chaos-escenario-ram
   namespace: dev
   labels:
-    app: front
+    app: stress
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: front
+      app: stress
   template:
     metadata:
       labels:
-        app: front
+        app: stress
     spec:
       containers:
       - name: nginx
