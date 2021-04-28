@@ -1,1 +1,4 @@
 
+El escenario sobre el que se realizan las pruebas es la tienda Hipster de Google que está desplegada con la ayuda de Istio.
+Su repositorio:
+https://github.com/GoogleCloudPlatform/microservices-demo/blob/master/docs/service-mesh.md
