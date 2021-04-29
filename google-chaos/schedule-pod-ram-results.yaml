@@ -1,1 +1,16 @@
+kubectl logs shippingservice-5f4d856dc-9rfhr
 
+{"message":"[GetQuote] received request","severity":"info","timestamp":"2021-04-29T06:30:12.409340612Z"}
+{"message":"[GetQuote] completed request","severity":"info","timestamp":"2021-04-29T06:30:12.409382672Z"}
+{"message":"[GetQuote] received request","severity":"info","timestamp":"2021-04-29T06:30:12.459167132Z"}
+{"message":"[GetQuote] completed request","severity":"info","timestamp":"2021-04-29T06:30:12.459239284Z"}
+{"message":"[ShipOrder] received request","severity":"info","timestamp":"2021-04-29T06:30:12.478840585Z"}
+{"message":"[ShipOrder] completed request","severity":"info","timestamp":"2021-04-29T06:30:12.478896912Z"}
+2021/04/29 06:30:14 Failed to export to Stackdriver: rpc error: code = ResourceExhausted desc = Resource has been exhausted (e.g. check quota).
+{"message":"[GetQuote] received request","severity":"info","timestamp":"2021-04-29T06:30:14.55831512Z"}
+{"message":"[GetQuote] completed request","severity":"info","timestamp":"2021-04-29T06:30:14.558355109Z"}
+2021/04/29 06:30:16 Failed to export to Stackdriver: rpc error: code = ResourceExhausted desc = Resource has been exhausted (e.g. check quota).
+2021/04/29 06:30:19 Failed to export to Stackdriver: rpc error: code = ResourceExhausted desc = Resource has been exhausted (e.g. check quota).
+{"message":"[GetQuote] received request","severity":"info","timestamp":"2021-04-29T06:30:20.540147609Z"}
+{"message":"[GetQuote] completed request","severity":"info","timestamp":"2021-04-29T06:30:20.540391091Z"}
+2021/04/29 06:30:22 Failed to export to Stackdriver: rpc error: code = ResourceExhausted desc = Resource has been exhausted (e.g. check quota).
