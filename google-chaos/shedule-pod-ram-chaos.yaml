@@ -1,0 +1,27 @@
+apiVersion: litmuschaos.io/v1alpha1
+kind: ChaosSchedule
+metadata:
+  name: schedule-pod-ram
+spec:
+  schedule:
+    now: true
+  engineTemplateSpec:
+    appinfo:
+      appns: 'default'
+      applabel: 'app=shippingservice'
+      appkind: 'deployment'
+    annotationCheck: 'true'
+    chaosServiceAccount: pod-memory-hog-sa
+    monitoring: false
+    jobCleanUpPolicy: 'delete'
+    experiments:
+    - name: pod-memory-hog
+      spec:
+        components:
+          env:
+            # Enter the amount of memory in megabytes to be consumed by the application pod
+            - name: MEMORY_CONSUMPTION
+              value: '500'
+
+            - name: TOTAL_CHAOS_DURATION
+              value: '60' # in seconds
