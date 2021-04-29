@@ -11,6 +11,7 @@ spec:
       applabel: 'app=shippingservice'
       appkind: 'deployment'
     annotationCheck: 'true'
+    engineState: 'active'
     chaosServiceAccount: pod-memory-hog-sa
     monitoring: false
     jobCleanUpPolicy: 'delete'
