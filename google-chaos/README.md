@@ -18,4 +18,4 @@ A diferencia de un chaos-engine, al terminar el experimento no se genera ningun 
 que se genera (comprobar que su status: running). 
 
 Para ver los logs:
-kubectl get pods -n litmus. Saldrán por pantalla tanto el de engine como el de schedule. 
+kubectl logs chaos-scheduler-5877d9dbd6-9qfwf -n litmus
