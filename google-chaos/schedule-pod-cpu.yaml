@@ -1,0 +1,29 @@
+apiVersion: litmuschaos.io/v1alpha1
+kind: ChaosSchedule
+metadata:
+  name: schedule-pod-cpu
+spec:
+  schedule:
+    now: true
+  engineTemplateSpec:
+    appinfo:
+      appns: 'default'
+      applabel: 'app='
+      appkind: 'deployment'
+    annotationCheck: 'true'
+    engineState: 'active'
+    chaosServiceAccount: pod-cpu-hog-sa
+    monitoring: false
+    jobCleanUpPolicy: 'delete'
+   experiments:
+    - name: pod-cpu-hog
+      spec:
+        components:
+          env:
+            #number of cpu cores to be consumed
+            #verify the resources the app has been launched with
+            - name: CPU_CORES
+              value: '1'
+
+            - name: TOTAL_CHAOS_DURATION
+              value: '60' # in seconds
