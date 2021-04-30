@@ -10,6 +10,7 @@ spec:
       appns: 'default'
       applabel: 'app=shippingservice'
       appkind: 'deployment'
+      auxiliaryAppInfo: 'istio.io/rev = default'
     annotationCheck: 'true'
     engineState: 'active'
     chaosServiceAccount: pod-memory-hog-sa
