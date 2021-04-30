@@ -16,7 +16,7 @@ spec:
     chaosServiceAccount: container-kill-sa
     monitoring: false
   # It can be delete/retain
-  jobCleanUpPolicy: 'delete' 
+    jobCleanUpPolicy: 'delete' 
     experiments:
       - name: container-kill
         spec:
