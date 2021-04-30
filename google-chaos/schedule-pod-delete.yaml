@@ -1,7 +1,7 @@
 apiVersion: litmuschaos.io/v1alpha1
 kind: ChaosSchedule
 metadata:
-  name: schedule-google
+  name: schedule-pod-delete
 spec:
   schedule:
     now: true
