@@ -5,6 +5,7 @@ metadata:
 spec:
   schedule:
     now: true
+  uxiliaryAppInfo: 'istio.io/rev = default'
   engineTemplateSpec:
     appinfo:
       appns: 'default'
