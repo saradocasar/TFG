@@ -1,0 +1,41 @@
+kubectl describe chaosschedule schedule-docker-kill
+Schedule:
+    Now:           true
+  Schedule State:  complete
+Status:
+  Last Schedule Time:  2021-05-01T15:03:28Z
+  Schedule:
+    End Time:    2021-05-01T15:06:52Z
+    Start Time:  2021-05-01T15:03:28Z
+    Status:      completed
+Events:
+  Type    Reason              Age   From             Message
+  ----    ------              ----  ----             -------
+  Normal  SuccessfulCreate    5m9s  chaos-scheduler  Created engine schedule-docker-kill
+  Normal  SawCompletedEngine  105s  chaos-scheduler  Saw completed engine: schedule-docker-kill, status: completed
+  Normal  ScheduleCompleted   105s  chaos-scheduler  Schedule completed successfully
+  
+ kubectl describe chaosresult schedule-docker-kill-docker-service-kill 
+  Spec:
+  Engine:      schedule-docker-kill
+  Experiment:  docker-service-kill
+Status:
+  Experimentstatus:
+    Fail Step:  N/A
+    Phase:      Completed
+    Verdict:    Pass
+    
+    kubectl get pods
+NAME                                     READY   STATUS    RESTARTS   AGE
+adservice-6b74979749-d75bx               1/1     Running   0          5h12m
+cartservice-6fc79c6d86-dnxs4             1/1     Running   0          125m
+checkoutservice-7c95787547-j5mlk         1/1     Running   0          5h12m
+currencyservice-67674dbdf7-2967h         1/1     Running   0          5h12m
+emailservice-799966ff9f-v5v99            1/1     Running   0          5h12m
+frontend-597d957cdf-6wtbz                1/1     Running   1          5h12m
+loadgenerator-88f7dbff5-8f8b9            1/1     Running   4          5h12m
+paymentservice-5bdd645d9f-qjs5t          1/1     Running   0          5h12m
+productcatalogservice-7ffbf4fbf5-8qpb9   1/1     Running   0          5h12m
+recommendationservice-599dfdc445-79ckx   1/1     Running   0          5h12m
+redis-cart-57bd646894-cxg7s              1/1     Running   0          5h12m
+shippingservice-5f4d856dc-frd5n          1/1     Running   0          5h12m
