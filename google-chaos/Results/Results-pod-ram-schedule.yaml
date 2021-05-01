@@ -1,0 +1,65 @@
+Una vez ejecutado el experimento, comprobamos los recursos que se han consumido en el nodo donde se encuentra el pod:
+Events:
+  Type     Reason      Age   From            Message
+  ----     ------      ----  ----            -------
+  Warning  SystemOOM   29m   kubelet         System OOM encountered, victim process: dd, pid: 656876
+  Warning  OOMKilling  29m   kernel-monitor  Memory cgroup out of memory: Killed process 656876 (dd) total-vm:134708kB, anon-rss:117132kB, file-rss:432kB, shmem-rss:0kB, UID:0 pgtables:272kB oom_score_adj:997
+  
+  Los resultados:
+  Status:
+  Experiment Status:
+    Fail Step:                 N/A
+    Phase:                     Completed
+    Probe Success Percentage:  100
+    Verdict:                   Pass
+  History:
+    Failed Runs:   0
+    Passed Runs:   1
+    Stopped Runs:  0
+Events:
+  Type    Reason   Age   From                         Message
+  ----    ------   ----  ----                         -------
+  Normal  Awaited  31m   pod-memory-hog-glt8dc-7wzb7  experiment: pod-memory-hog, Result: Awaited
+  Normal  Pass     31m   pod-memory-hog-glt8dc-7wzb7  experiment: pod-memory-hog, Result: Pass
+  
+  
+  Spec:
+  Engine Template Spec:
+    Annotation Check:  true
+    Appinfo:
+      Appkind:              deployment
+      Applabel:             app=shippingservice
+      Appns:                default
+    Chaos Service Account:  pod-memory-hog-sa
+    Components:
+      Runner:
+        Resources:
+    Engine State:  active
+    Experiments:
+      Name:  pod-memory-hog
+      Spec:
+        Components:
+          Env:
+            Name:   MEMORY_CONSUMPTION
+            Value:  130
+            Name:   TOTAL_CHAOS_DURATION
+            Value:  60
+          Resources:
+          Status Check Timeouts:
+        Rank:             0
+    Job Clean Up Policy:  delete
+  Schedule:
+    Now:           true
+  Schedule State:  complete
+Status:
+  Last Schedule Time:  2021-05-01T12:02:11Z
+  Schedule:
+    End Time:    2021-05-01T12:02:37Z
+    Start Time:  2021-05-01T12:02:11Z
+    Status:      completed
+Events:
+  Type    Reason              Age   From             Message
+  ----    ------              ----  ----             -------
+  Normal  SuccessfulCreate    31m   chaos-scheduler  Created engine schedule-pod-ram
+  Normal  SawCompletedEngine  31m   chaos-scheduler  Saw completed engine: schedule-pod-ram, status: completed
+  Normal  ScheduleCompleted   31m   chaos-scheduler  Schedule completed successfully
