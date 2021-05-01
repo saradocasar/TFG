@@ -1,8 +1,11 @@
 apiVersion: litmuschaos.io/v1alpha1
-kind: ChaosEngine
+kind: ChaosSchedule
 metadata:
   name: schedule-net-latency
   namespace: default
+spec:
+  schedule:
+    now: true
 spec: 
   # It can be delete/retain
   jobCleanUpPolicy: 'delete'
