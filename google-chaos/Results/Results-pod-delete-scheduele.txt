@@ -1,0 +1,80 @@
+kubectl describe chaosresults schedule-pod-delete-pod-delete
+Name:         schedule-pod-delete-pod-delete
+Namespace:    default
+Labels:       app.kubernetes.io/component=experiment-job
+              app.kubernetes.io/part-of=litmus
+              app.kubernetes.io/version=1.13.3
+              chaosUID=81235e47-888e-4883-b612-70b45b883fa9
+              controller-uid=5b37f5c6-4a00-46f2-9e35-8f865d3ff885
+              job-name=pod-delete-3ru8pc
+              name=schedule-pod-delete-pod-delete
+Annotations:  <none>
+API Version:  litmuschaos.io/v1alpha1
+Kind:         ChaosResult
+Metadata:
+  Creation Timestamp:  2021-05-01T11:34:48Z
+  Generation:          2
+  Managed Fields:
+    API Version:  litmuschaos.io/v1alpha1
+    Fields Type:  FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:labels:
+          .:
+          f:app.kubernetes.io/component:
+          f:app.kubernetes.io/part-of:
+          f:app.kubernetes.io/version:
+          f:chaosUID:
+          f:controller-uid:
+          f:job-name:
+          f:name:
+      f:spec:
+        .:
+        f:engine:
+        f:experiment:
+      f:status:
+        .:
+        f:experimentStatus:
+        f:history:
+    Manager:         experiments
+    Operation:       Update
+    Time:            2021-05-01T11:34:48Z
+  Resource Version:  1878623
+  Self Link:         /apis/litmuschaos.io/v1alpha1/namespaces/default/chaosresults/schedule-pod-delete-pod-delete
+  UID:               704cc467-d3e6-4dbb-92c1-1597bdbc65cf
+Spec:
+  Engine:      schedule-pod-delete
+  Experiment:  pod-delete
+Status:
+  Experiment Status:
+    Fail Step:                 N/A
+    Phase:                     Completed
+    Probe Success Percentage:  100
+    Verdict:                   Pass
+  History:
+    Failed Runs:   0
+    Passed Runs:   1
+    Stopped Runs:  0
+Events:
+  Type    Reason   Age    From                     Message
+  ----    ------   ----   ----                     -------
+  Normal  Awaited  3m30s  pod-delete-3ru8pc-qj9dj  experiment: pod-delete, Result: Awaited
+  Normal  Pass     2m34s  pod-delete-3ru8pc-qj9dj  experiment: pod-delete, Result: Pass
+  
+  
+kubectl describe chaosschedule schedule-pod-delete  
+    Schedule:
+    Now:           true
+  Schedule State:  complete
+Status:
+  Last Schedule Time:  2021-05-01T11:34:37Z
+  Schedule:
+    End Time:    2021-05-01T11:35:54Z
+    Start Time:  2021-05-01T11:34:37Z
+    Status:      completed
+Events:
+  Type    Reason              Age   From             Message
+  ----    ------              ----  ----             -------
+  Normal  SuccessfulCreate    109s  chaos-scheduler  Created engine schedule-pod-delete
+  Normal  SawCompletedEngine  32s   chaos-scheduler  Saw completed engine: schedule-pod-delete, status: completed
+  Normal  ScheduleCompleted   32s   chaos-scheduler  Schedule completed successfully
