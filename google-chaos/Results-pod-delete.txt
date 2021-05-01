@@ -1,0 +1,62 @@
+kubectl describe chaosresults engine-pod-delete
+Name:         engine-pod-delete
+Namespace:    default
+Labels:       app.kubernetes.io/component=experiment-job
+              app.kubernetes.io/part-of=litmus
+              app.kubernetes.io/version=1.13.3
+              chaosUID=2755365a-c940-4523-a53d-dc0f411fb3b5
+              controller-uid=7562c93a-7de8-49a6-8755-904514e2b651
+              job-name=pod-delete-4ze8w7
+              name=engine-pod-delete
+Annotations:  <none>
+API Version:  litmuschaos.io/v1alpha1
+Kind:         ChaosResult
+Metadata:
+  Creation Timestamp:  2021-05-01T09:54:35Z
+  Generation:          4
+  Managed Fields:
+    API Version:  litmuschaos.io/v1alpha1
+    Fields Type:  FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:labels:
+          .:
+          f:app.kubernetes.io/component:
+          f:app.kubernetes.io/part-of:
+          f:app.kubernetes.io/version:
+          f:chaosUID:
+          f:controller-uid:
+          f:job-name:
+          f:name:
+      f:spec:
+        .:
+        f:engine:
+        f:experiment:
+      f:status:
+        .:
+        f:experimentStatus:
+        f:history:
+    Manager:         experiments
+    Operation:       Update
+    Time:            2021-05-01T09:54:35Z
+  Resource Version:  1875764
+  Self Link:         /apis/litmuschaos.io/v1alpha1/namespaces/default/chaosresults/engine-pod-delete
+  UID:               6e1e8723-268c-4b07-bfe0-caae7cb47421
+Spec:
+  Engine:      engine
+  Experiment:  pod-delete
+Status:
+  Experiment Status:
+    Fail Step:                 N/A
+    Phase:                     Completed
+    Probe Success Percentage:  100
+    Verdict:                   Pass
+  History:
+    Failed Runs:   0
+    Passed Runs:   2
+    Stopped Runs:  0
+Events:
+  Type    Reason   Age    From                     Message
+  ----    ------   ----   ----                     -------
+  Normal  Awaited  2m25s  pod-delete-4ze8w7-zz4b8  experiment: pod-delete, Result: Awaited
+  Normal  Pass     83s    pod-delete-4ze8w7-zz4b8  experiment: pod-delete, Result: Pass
