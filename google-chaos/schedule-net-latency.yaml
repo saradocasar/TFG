@@ -2,24 +2,20 @@ apiVersion: litmuschaos.io/v1alpha1
 kind: ChaosSchedule
 metadata:
   name: schedule-net-latency
-  namespace: default
 spec:
   schedule:
     now: true
-spec: 
-  # It can be delete/retain
-  jobCleanUpPolicy: 'delete'
-  # It can be true/false
-  annotationCheck: 'true'
-  # It can be active/stop
-  engineState: 'active'
-  appinfo: 
-    appns: 'default'
-    # FYI, To see app label, apply kubectl get pods --show-labels
-    applabel: 'app=productcatalogservice'
-    appkind: 'deployment'
-  chaosServiceAccount: pod-network-latency-sa
-  experiments:
+  engineTemplateSpec:
+    appinfo:
+      appns: 'default'
+      applabel: 'app=productcatalogservice'
+      appkind: 'deployment'
+    annotationCheck: 'true'
+    engineState: 'active'
+    chaosServiceAccount: pod-network-latency-sa
+    monitoring: false
+    jobCleanUpPolicy: 'delete'
+    experiments:
     - name: pod-network-latency
       spec:
         components:
