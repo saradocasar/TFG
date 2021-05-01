@@ -1,0 +1,55 @@
+kubectl describe chaosresult schedule-pod-cpu-pod-cpu-hog
+Spec:
+  Engine:      schedule-pod-cpu
+  Experiment:  pod-cpu-hog
+Status:
+  Experiment Status:
+    Fail Step:                 N/A
+    Phase:                     Completed
+    Probe Success Percentage:  100
+    Verdict:                   Pass
+  History:
+    Failed Runs:   2
+    Passed Runs:   1
+    Stopped Runs:  0
+Events:
+  Type     Reason   Age   From                      Message
+  ----     ------   ----  ----                      -------
+  Normal   Awaited  16m   pod-cpu-hog-3z6olb-zl8hc  experiment: pod-cpu-hog, Result: Awaited
+  Warning  Fail     15m   pod-cpu-hog-3z6olb-zl8hc  experiment: pod-cpu-hog, Result: Fail
+  Normal   Awaited  9m3s  pod-cpu-hog-zgdfuh-pppbk  experiment: pod-cpu-hog, Result: Awaited
+  Warning  Fail     8m1s  pod-cpu-hog-zgdfuh-pppbk  experiment: pod-cpu-hog, Result: Fail
+  Normal   Awaited  114s  pod-cpu-hog-7y404a-nmbdv  experiment: pod-cpu-hog, Result: Awaited
+  Normal   Pass     50s   pod-cpu-hog-7y404a-nmbdv  experiment: pod-cpu-hog, Result: Pass
+  
+
+
+kubectl describe chaosschedule schedule-pod-cpu
+     Experiments:
+      Name:  pod-cpu-hog
+      Spec:
+        Components:
+          Env:
+            Name:   CPU_CORES
+            Value:  1
+            Name:   TOTAL_CHAOS_DURATION
+            Value:  60
+          Resources:
+          Status Check Timeouts:
+        Rank:             0
+    Job Clean Up Policy:  delete
+  Schedule:
+    Now:           true
+  Schedule State:  complete
+Status:
+  Last Schedule Time:  2021-05-01T12:56:12Z
+  Schedule:
+    End Time:    2021-05-01T12:57:38Z
+    Start Time:  2021-05-01T12:56:12Z
+    Status:      completed
+Events:
+  Type    Reason              Age   From             Message
+  ----    ------              ----  ----             -------
+  Normal  SuccessfulCreate    110s  chaos-scheduler  Created engine schedule-pod-cpu
+  Normal  SawCompletedEngine  25s   chaos-scheduler  Saw completed engine: schedule-pod-cpu, status: completed
+  Normal  ScheduleCompleted   24s   chaos-scheduler  Schedule completed successfully
