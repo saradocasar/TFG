@@ -1,22 +1,21 @@
 apiVersion: litmuschaos.io/v1alpha1
-kind: ChaosEngine
+kind: ChaosSchedule
 metadata:
   name: schedule-docker-kill
-  namespace: default
-spec: 
-  # It can be delete/retain
-  jobCleanUpPolicy: 'delete'
-  # It can be true/false
-  annotationCheck: 'true'
-  # It can be active/stop
-  engineState: 'active'
-  appinfo: 
-    appns: 'default'
-    # FYI, To see app label, apply kubectl get pods --show-labels
-    applabel: 'app=frontend'
-    appkind: 'deployment'
-  chaosServiceAccount: docker-service-kill-sa
- experiments:
+spec:
+  schedule:
+    now: true
+  engineTemplateSpec:
+    appinfo:
+      appns: 'default'
+      applabel: 'app=frontend'
+      appkind: 'deployment'
+    annotationCheck: 'true'
+    engineState: 'active'
+    chaosServiceAccount: docker-service-kill-sa
+    monitoring: false
+    jobCleanUpPolicy: 'delete'
+    experiments:
     - name: docker-service-kill
       spec:
         components:
