@@ -8,7 +8,7 @@ spec:
   engineTemplateSpec:
     appinfo:
       appns: 'default'
-      applabel: 'app='
+      applabel: 'app=emailservice'
       appkind: 'deployment'
     annotationCheck: 'true'
     engineState: 'active'
@@ -23,7 +23,7 @@ spec:
             #number of cpu cores to be consumed
             #verify the resources the app has been launched with
             - name: CPU_CORES
-              value: '1'
+              value: '300m'
 
             - name: TOTAL_CHAOS_DURATION
               value: '60' # in seconds
