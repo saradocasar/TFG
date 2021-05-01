@@ -1,0 +1,19 @@
+kubectl describe chaosresult nginx-network-chaos-pod-network-latency
+Spec:
+  Engine:      nginx-network-chaos
+  Experiment:  pod-network-latency
+Status:
+  Experiment Status:
+    Fail Step:                 N/A
+    Phase:                     Completed
+    Probe Success Percentage:  100
+    Verdict:                   Pass
+  History:
+    Failed Runs:   0
+    Passed Runs:   1
+    Stopped Runs:  0
+Events:
+  Type    Reason   Age    From                              Message
+  ----    ------   ----   ----                              -------
+  Normal  Awaited  3m12s  pod-network-latency-3vtxfa-992bf  experiment: pod-network-latency, Result: Awaited
+  Normal  Pass     110s   pod-network-latency-3vtxfa-992bf  experiment: pod-network-latency, Result: Pass
