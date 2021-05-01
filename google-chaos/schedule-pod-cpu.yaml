@@ -23,7 +23,7 @@ spec:
             #number of cpu cores to be consumed
             #verify the resources the app has been launched with
             - name: CPU_CORES
-              value: '300m'
+              value: '0.3'
 
             - name: TOTAL_CHAOS_DURATION
               value: '60' # in seconds
