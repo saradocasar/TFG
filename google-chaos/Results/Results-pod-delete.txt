@@ -60,3 +60,29 @@ Events:
   ----    ------   ----   ----                     -------
   Normal  Awaited  2m25s  pod-delete-4ze8w7-zz4b8  experiment: pod-delete, Result: Awaited
   Normal  Pass     83s    pod-delete-4ze8w7-zz4b8  experiment: pod-delete, Result: Pass
+
+
+
+kubectl describe chaosengine engine
+
+Status:
+  Engine Status:  completed
+  Experiments:
+    Experiment Pod:    pod-delete-4ze8w7-zz4b8
+    Last Update Time:  2021-05-01T11:29:15Z
+    Name:              pod-delete
+    Runner:            engine-runner
+    Status:            Completed
+    Verdict:           Pass
+Events:
+  Type    Reason                     Age                    From                     Message
+  ----    ------                     ----                   ----                     -------
+  Normal  ChaosEngineInitialized     4m47s                  chaos-operator           Identifying app under test & launching engine-runner
+  Normal  ExperimentJobCreate        4m44s                  engine-runner            Experiment Job pod-delete-4ze8w7 for Chaos Experiment: pod-delete
+  Normal  ExperimentDependencyCheck  4m44s                  engine-runner            Experiment resources validated for Chaos Experiment: pod-delete
+  Normal  PreChaosCheck              4m39s                  pod-delete-4ze8w7-zz4b8  AUT: Running
+  Normal  ChaosInject                4m11s (x2 over 4m39s)  pod-delete-4ze8w7-zz4b8  Injecting pod-delete chaos on application pod
+  Normal  PostChaosCheck             3m39s                  pod-delete-4ze8w7-zz4b8  AUT: Running
+  Normal  Summary                    3m39s                  pod-delete-4ze8w7-zz4b8  pod-delete experiment has been Passed
+  Normal  ExperimentJobCleanUp       3m24s                  engine-runner            Experiment Job: pod-delete-4ze8w7 will be deleted
+  Normal  ChaosEngineCompleted       3m24s                  chaos-operator           ChaosEngine completed, will delete or retain the resources according to jobCleanUpPolicy
