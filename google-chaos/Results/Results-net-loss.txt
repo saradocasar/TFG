@@ -1,0 +1,106 @@
+kubectl describe chaosresult schedule-net-loss-pod-network-lossSpec:
+  Engine:      schedule-net-loss
+  Experiment:  pod-network-loss
+Status:
+  Experiment Status:
+    Fail Step:                 N/A
+    Phase:                     Completed
+    Probe Success Percentage:  100
+    Verdict:                   Pass
+  History:
+    Failed Runs:   0
+    Passed Runs:   1
+    Stopped Runs:  0
+Events:
+  Type    Reason   Age   From                           Message
+  ----    ------   ----  ----                           -------
+  Normal  Awaited  91s   pod-network-loss-jv1pv7-jm2mr  experiment: pod-network-loss, Result: Awaited
+  Normal  Pass     19s   pod-network-loss-jv1pv7-jm2mr  experiment: pod-network-loss, Result: Pass
+
+kubectl describe chaosschedule schedule-net-loss
+    Schedule:
+    Now:           true
+  Schedule State:  complete
+Status:
+  Last Schedule Time:  2021-05-01T15:17:22Z
+  Schedule:
+    End Time:    2021-05-01T15:18:49Z
+    Start Time:  2021-05-01T15:17:22Z
+    Status:      completed
+Events:
+  Type    Reason              Age    From             Message
+  ----    ------              ----   ----             -------
+  Normal  SuccessfulCreate    2m56s  chaos-scheduler  Created engine schedule-net-loss
+  Normal  SawCompletedEngine  89s    chaos-scheduler  Saw completed engine: schedule-net-loss, status: completed
+  Normal  ScheduleCompleted   89s    chaos-scheduler  Schedule completed successfully
+  
+  los logs del pod afectado, se puede comprobar por las horas en la que se realizó:
+  
+  May 01, 2021 3:17:36 PM io.grpc.netty.shaded.io.grpc.netty.NettyServerTransport notifyTerminated
+INFO: Transport failed
+io.grpc.netty.shaded.io.netty.channel.unix.Errors$NativeIoException: readAddress(..) failed: Connection reset by peer
+
+May 01, 2021 3:17:45 PM io.opencensus.implcore.trace.export.SpanExporterImpl$Worker onBatchExport
+WARNING: Exception thrown by the service export io.opencensus.exporter.trace.stackdriver.StackdriverTraceExporter
+com.google.api.gax.rpc.DeadlineExceededException: io.grpc.StatusRuntimeException: DEADLINE_EXCEEDED: deadline exceeded after 9.999715677s. [remote_addr=cloudtrace.googleapis.com/216.58.209.10:443]
+        at com.google.api.gax.rpc.ApiExceptionFactory.createException(ApiExceptionFactory.java:51)
+        at com.google.api.gax.grpc.GrpcApiExceptionFactory.create(GrpcApiExceptionFactory.java:72)
+        at com.google.api.gax.grpc.GrpcApiExceptionFactory.create(GrpcApiExceptionFactory.java:60)
+        at com.google.api.gax.grpc.GrpcExceptionCallable$ExceptionTransformingFuture.onFailure(GrpcExceptionCallable.java:97)
+        at com.google.api.core.ApiFutures$1.onFailure(ApiFutures.java:68)
+        at com.google.common.util.concurrent.Futures$CallbackListener.run(Futures.java:982)
+        at com.google.common.util.concurrent.DirectExecutor.execute(DirectExecutor.java:30)
+        at com.google.common.util.concurrent.AbstractFuture.executeListener(AbstractFuture.java:1138)
+        at com.google.common.util.concurrent.AbstractFuture.complete(AbstractFuture.java:957)
+        at com.google.common.util.concurrent.AbstractFuture.setException(AbstractFuture.java:748)
+        at io.grpc.stub.ClientCalls$GrpcFuture.setException(ClientCalls.java:522)
+        at io.grpc.stub.ClientCalls$UnaryStreamToFuture.onClose(ClientCalls.java:497)
+        at io.grpc.PartialForwardingClientCallListener.onClose(PartialForwardingClientCallListener.java:39)
+        at io.grpc.ForwardingClientCallListener.onClose(ForwardingClientCallListener.java:23)
+        at io.grpc.ForwardingClientCallListener$SimpleForwardingClientCallListener.onClose(ForwardingClientCallListener.java:40)
+        at io.grpc.internal.CensusStatsModule$StatsClientInterceptor$1$1.onClose(CensusStatsModule.java:700)
+        at io.grpc.PartialForwardingClientCallListener.onClose(PartialForwardingClientCallListener.java:39)
+        at io.grpc.ForwardingClientCallListener.onClose(ForwardingClientCallListener.java:23)
+        at io.grpc.ForwardingClientCallListener$SimpleForwardingClientCallListener.onClose(ForwardingClientCallListener.java:40)
+        at io.grpc.internal.CensusTracingModule$TracingClientInterceptor$1$1.onClose(CensusTracingModule.java:399)
+        at io.grpc.internal.ClientCallImpl.closeObserver(ClientCallImpl.java:521)
+        at io.grpc.internal.ClientCallImpl.access$300(ClientCallImpl.java:66)
+        at io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl.close(ClientCallImpl.java:641)
+        at io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl.access$700(ClientCallImpl.java:529)
+        at io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInternal(ClientCallImpl.java:703)
+        at io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInContext(ClientCallImpl.java:692)
+        at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37)
+        at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:123)
+        at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+        at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+        at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+        at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+        at java.lang.Thread.run(Thread.java:748)
+        Suppressed: com.google.api.gax.rpc.AsyncTaskException: Asynchronous task failed
+         at com.google.api.gax.rpc.ApiExceptions.callAndTranslateApiException(ApiExceptions.java:57)
+                at com.google.api.gax.rpc.UnaryCallable.call(UnaryCallable.java:112)
+                at com.google.cloud.trace.v2.TraceServiceClient.batchWriteSpans(TraceServiceClient.java:234)
+                at com.google.cloud.trace.v2.TraceServiceClient.batchWriteSpans(TraceServiceClient.java:182)
+                at io.opencensus.exporter.trace.stackdriver.StackdriverV2ExporterHandler.export(StackdriverV2ExporterHandler.java:444)
+                at io.opencensus.implcore.trace.export.SpanExporterImpl$Worker.onBatchExport(SpanExporterImpl.java:248)
+                at io.opencensus.implcore.trace.export.SpanExporterImpl$Worker.exportBatches(SpanExporterImpl.java:350)
+                at io.opencensus.implcore.trace.export.SpanExporterImpl$Worker.run(SpanExporterImpl.java:290)
+                ... 1 more
+Caused by: io.grpc.StatusRuntimeException: DEADLINE_EXCEEDED: deadline exceeded after 9.999715677s. [remote_addr=cloudtrace.googleapis.com/216.58.209.10:443]
+        at io.grpc.Status.asRuntimeException(Status.java:533)
+        ... 24 more
+
+May 01, 2021 3:18:06 PM io.grpc.netty.shaded.io.grpc.netty.NettyServerTransport notifyTerminated
+INFO: Transport failed
+io.grpc.netty.shaded.io.netty.channel.unix.Errors$NativeIoException: readAddress(..) failed: Connection reset by peer
+
+May 01, 2021 3:18:49 PM io.grpc.netty.shaded.io.grpc.netty.NettyServerTransport notifyTerminated
+INFO: Transport failed
+io.grpc.netty.shaded.io.netty.channel.unix.Errors$NativeIoException: readAddress(..) failed: Connection reset by peer
+
+May 01, 2021 3:18:51 PM io.grpc.netty.shaded.io.grpc.netty.NettyServerTransport notifyTerminated
+INFO: Transport failed
+io.grpc.netty.shaded.io.netty.channel.unix.Errors$NativeIoException: readAddress(..) failed: Connection reset by peer
+  
