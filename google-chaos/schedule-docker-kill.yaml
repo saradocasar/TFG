@@ -15,7 +15,7 @@ spec:
     # FYI, To see app label, apply kubectl get pods --show-labels
     applabel: 'app=frontend'
     appkind: 'deployment'
-  chaosServiceAccount: pod-network-latency-sa
+  chaosServiceAccount: docker-service-kill-sa
  experiments:
     - name: docker-service-kill
       spec:
