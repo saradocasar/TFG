@@ -4,7 +4,13 @@ metadata:
   name: schedule-pod-delete
 spec:
   schedule:
-    now: true
+    repeat:
+      timeRange:
+        startTime: "2021-05-02T18:10:00Z"   
+        endTime: "2021-05-02T20:00:00Z"   
+      properties:
+        # Every 2 hours 
+        minChaosInterval: "1h"
   engineTemplateSpec:
     appinfo:
       appns: 'default'
@@ -38,7 +44,13 @@ metadata:
   name: schedule-pod-ram
 spec:
   schedule:
-    now: true
+     repeat:
+      timeRange:
+        startTime: "2021-05-02T18:20:00Z"   
+        endTime: "2021-05-02T20:00:00Z"   
+      properties:
+        # Every 2 hours 
+        minChaosInterval: "1h"
   engineTemplateSpec:
     appinfo:
       appns: 'default'
@@ -67,7 +79,13 @@ metadata:
   name: schedule-pod-cpu
 spec:
   schedule:
-    now: true
+     repeat:
+      timeRange:
+        startTime: "2021-05-02T18:20:00Z"   
+        endTime: "2021-05-02T20:00:00Z"   
+      properties:
+        # Every 2 hours 
+        minChaosInterval: "1h"
   engineTemplateSpec:
     appinfo:
       appns: 'default'
@@ -97,7 +115,13 @@ metadata:
   name: schedule-net-loss
 spec:
   schedule:
-    now: true
+     repeat:
+      timeRange:
+        startTime: "2021-05-02T18:40:00Z"   
+        endTime: "2021-05-02T20:00:00Z"   
+      properties:
+        # Every 2 hours 
+        minChaosInterval: "1h"
   engineTemplateSpec:
     appinfo:
       appns: 'default'
@@ -140,7 +164,13 @@ metadata:
   name: schedule-net-latency
 spec:
   schedule:
-    now: true
+     repeat:
+      timeRange:
+        startTime: "2021-05-02T18:50:00Z"   
+        endTime: "2021-05-02T20:00:00Z"   
+      properties:
+        # Every 2 hours 
+        minChaosInterval: "1h"
   engineTemplateSpec:
     appinfo:
       appns: 'default'
@@ -182,7 +212,13 @@ metadata:
   name: schedule-docker-kill
 spec:
   schedule:
-    now: true
+     repeat:
+      timeRange:
+        startTime: "2021-05-02T19:00:00Z"   
+        endTime: "2021-05-02T20:00:00Z"   
+      properties:
+        # Every 2 hours 
+        minChaosInterval: "1h"
   engineTemplateSpec:
     appinfo:
       appns: 'default'
