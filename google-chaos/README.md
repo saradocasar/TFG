@@ -14,8 +14,7 @@ Por cada schedule se deberán crear sus permisos correspondientes!! (son exactam
 
 Cuando ya se han hecho esas dos cosas, se modifica el archivo chaos-schedule al gusto y se ejecuta con kubectl apply -f fichero-chaos-schedule.yaml
 
-A diferencia de un chaos-engine, al terminar el experimento no se genera ningun archivo de resultados luego todo se hace por monitorización y revisando los logs y el chaosschedule
-que se genera (comprobar que su status: running). 
+Al final de cada experimento, se generan los ficheros de resultados chaosresults correspondientes.
 
 Para ver los logs:
 kubectl logs chaos-scheduler-5877d9dbd6-9qfwf -n litmus
