@@ -55,7 +55,7 @@ subjects:
 - kind: ServiceAccount
   name: pod-delete-sa
   namespace: default
-  ---
+---
 apiVersion: v1
 kind: ServiceAccount
 metadata:
@@ -112,7 +112,7 @@ subjects:
 - kind: ServiceAccount
   name: pod-delete-sa
   namespace: default
-  ---
+---
 apiVersion: v1
 kind: ServiceAccount
 metadata:
@@ -169,7 +169,8 @@ subjects:
 - kind: ServiceAccount
   name: pod-cpu-hog-sa
   namespace: default
-  apiVersion: v1
+---
+apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: pod-network-loss-sa
@@ -225,7 +226,7 @@ subjects:
 - kind: ServiceAccount
   name: pod-network-loss-sa
   namespace: default
-  ---
+---
 apiVersion: v1
 kind: ServiceAccount
 metadata:
@@ -282,7 +283,7 @@ subjects:
 - kind: ServiceAccount
   name: pod-network-latency-sa
   namespace: default
-  ---
+---
 apiVersion: v1
 kind: ServiceAccount
 metadata:
