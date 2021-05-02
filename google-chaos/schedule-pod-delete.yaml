@@ -5,7 +5,6 @@ metadata:
 spec:
   schedule:
     now: true
-  auxiliaryAppInfo: 'istio.io/rev = default'
   engineTemplateSpec:
     appinfo:
       appns: 'default'
@@ -32,3 +31,4 @@ spec:
               # pod failures without '--force' & default terminationGracePeriodSeconds
               - name: FORCE
                 value: 'false'
+
