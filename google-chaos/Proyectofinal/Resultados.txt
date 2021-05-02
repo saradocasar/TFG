@@ -1,0 +1,18 @@
+Después de la ejecución del experimento completo (2 horas), obtenemos los siguientes resultados:
+Todos se han realizado de manera satisfactoria.
+El experimento que más perjudica a la arquitectura es la eliminación de un pod ya que hace que se caiga por completo la pagina web.
+Los fallos más desapercibidos son el consumo de ram y cpu de los pods mientras que la latencia y la pérdida de paquetes si que se hace notoria junto con el experimento de docker-kill
+que provoca el reinicio constante del pod de frontend. Depúes del experimento, los pods se quedan asi:
+NAME                                     READY   STATUS    RESTARTS   AGE
+adservice-6b74979749-d75bx               1/1     Running   0          35h
+cartservice-6fc79c6d86-zbn4q             1/1     Running   0          3h41m
+checkoutservice-7c95787547-j5mlk         1/1     Running   0          35h
+currencyservice-67674dbdf7-2967h         1/1     Running   3          35h
+emailservice-799966ff9f-v5v99            1/1     Running   0          35h
+frontend-597d957cdf-6wtbz                1/1     Running   15         35h
+loadgenerator-88f7dbff5-8f8b9            1/1     Running   4          35h
+paymentservice-5bdd645d9f-qjs5t          1/1     Running   0          35h
+productcatalogservice-7ffbf4fbf5-8qpb9   1/1     Running   0          35h
+recommendationservice-599dfdc445-79ckx   1/1     Running   0          35h
+redis-cart-57bd646894-cxg7s              1/1     Running   0          35h
+shippingservice-5f4d856dc-frd5n          1/1     Running   0          35h
