@@ -16,3 +16,287 @@ productcatalogservice-7ffbf4fbf5-8qpb9   1/1     Running   0          35h
 recommendationservice-599dfdc445-79ckx   1/1     Running   0          35h
 redis-cart-57bd646894-cxg7s              1/1     Running   0          35h
 shippingservice-5f4d856dc-frd5n          1/1     Running   0          35h
+
+
+Algunos ejemplos:
+kubectl describe chaosresult schedule-docker-kill-1619974800-docker-service-kill
+Name:         schedule-docker-kill-1619974800-docker-service-kill
+Namespace:    default
+Labels:       chaosUID=4790d82f-8962-4240-89ec-430261a79ac2
+              type=ChaosResult
+Annotations:  <none>
+API Version:  litmuschaos.io/v1alpha1
+Kind:         ChaosResult
+Metadata:
+  Creation Timestamp:  2021-05-02T17:00:09Z
+  Generation:          2
+  Managed Fields:
+    API Version:  litmuschaos.io/v1alpha1
+    Fields Type:  FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .:
+          f:kubectl.kubernetes.io/last-applied-configuration:
+        f:labels:
+          .:
+          f:chaosUID:
+          f:type:
+      f:spec:
+        .:
+        f:engine:
+        f:experiment:
+      f:status:
+        .:
+        f:experimentstatus:
+    Manager:         kubectl
+    Operation:       Update
+    Time:            2021-05-02T17:00:09Z
+  Resource Version:  2603914
+  Self Link:         /apis/litmuschaos.io/v1alpha1/namespaces/default/chaosresults/schedule-docker-kill-1619974800-docker-service-kill
+  UID:               526855c5-28bf-4e35-a9db-aa0502ec71a3
+Spec:
+  Engine:      schedule-docker-kill-1619974800
+  Experiment:  docker-service-kill
+Status:
+  Experimentstatus:
+    Fail Step:  N/A
+    Phase:      Completed
+    Verdict:    Pass
+Events:         <none>
+
+kubectl describe chaosresult schedule-net-latency-1619974200-pod-network-latency
+Name:         schedule-net-latency-1619974200-pod-network-latency
+Namespace:    default
+Labels:       app.kubernetes.io/component=experiment-job
+              app.kubernetes.io/part-of=litmus
+              app.kubernetes.io/version=1.13.3
+              chaosUID=a6ffcdbb-03a4-40b9-8814-22719615174e
+              controller-uid=9108e2fd-a7c4-49f8-bcb0-ddb932e62bf2
+              job-name=pod-network-latency-hb17bd
+              name=schedule-net-latency-1619974200-pod-network-latency
+Annotations:  <none>
+API Version:  litmuschaos.io/v1alpha1
+Kind:         ChaosResult
+Metadata:
+  Creation Timestamp:  2021-05-02T16:50:04Z
+  Generation:          2
+  Managed Fields:
+    API Version:  litmuschaos.io/v1alpha1
+    Fields Type:  FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:labels:
+          .:
+          f:app.kubernetes.io/component:
+          f:app.kubernetes.io/part-of:
+          f:app.kubernetes.io/version:
+          f:chaosUID:
+          f:controller-uid:
+          f:job-name:
+          f:name:
+      f:spec:
+        .:
+        f:engine:
+        f:experiment:
+      f:status:
+        .:
+        f:experimentStatus:
+        f:history:
+    Manager:         experiments
+    Operation:       Update
+    Time:            2021-05-02T16:50:04Z
+  Resource Version:  2597551
+  Self Link:         /apis/litmuschaos.io/v1alpha1/namespaces/default/chaosresults/schedule-net-latency-1619974200-pod-network-latency
+  UID:               62e369e3-90d6-4fd3-a407-4a6419f3a8a1
+Spec:
+  Engine:      schedule-net-latency-1619974200
+  Experiment:  pod-network-latency
+Status:
+  Experiment Status:
+    Fail Step:                 N/A
+    Phase:                     Completed
+    Probe Success Percentage:  100
+    Verdict:                   Pass
+  History:
+      Failed Runs:   0
+    Passed Runs:   1
+    Stopped Runs:  0
+Events:            <none>
+
+kubectl describe chaosresult schedule-pod-cpu-1619973000-pod-cpu-hog
+Name:         schedule-pod-cpu-1619973000-pod-cpu-hog
+Namespace:    default
+Labels:       app.kubernetes.io/component=experiment-job
+              app.kubernetes.io/part-of=litmus
+              app.kubernetes.io/version=1.13.3
+              chaosUID=0b3781f6-4966-4cb5-a46e-b043c1b393fb
+              controller-uid=63b1d3e3-7f75-4641-a257-6bd208771d8b
+              job-name=pod-cpu-hog-gd6u9h
+              name=schedule-pod-cpu-1619973000-pod-cpu-hog
+Annotations:  <none>
+API Version:  litmuschaos.io/v1alpha1
+Kind:         ChaosResult
+Metadata:
+  Creation Timestamp:  2021-05-02T16:30:04Z
+  Generation:          2
+  Managed Fields:
+    API Version:  litmuschaos.io/v1alpha1
+    Fields Type:  FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:labels:
+          .:
+          f:app.kubernetes.io/component:
+          f:app.kubernetes.io/part-of:
+          f:app.kubernetes.io/version:
+          f:chaosUID:
+          f:controller-uid:
+          f:job-name:
+          f:name:
+      f:spec:
+        .:
+        f:engine:
+        f:experiment:
+      f:status:
+        .:
+        f:experimentStatus:
+        f:history:
+    Manager:         experiments
+    Operation:       Update
+    Time:            2021-05-02T16:30:04Z
+  Resource Version:  2586420
+  Self Link:         /apis/litmuschaos.io/v1alpha1/namespaces/default/chaosresults/schedule-pod-cpu-1619973000-pod-cpu-hog
+  UID:               d0d7627c-ab19-443f-a5c1-2e31d6c7b319
+Spec:
+  Engine:      schedule-pod-cpu-1619973000
+  Experiment:  pod-cpu-hog
+Status:
+  Experiment Status:
+    Fail Step:                 N/A
+    Phase:                     Completed
+    Probe Success Percentage:  100
+    Verdict:                   Pass
+  History:
+      Failed Runs:   0
+    Passed Runs:   1
+    Stopped Runs:  0
+Events:            <none>
+
+kubectl describe chaosresult schedule-pod-delete-1619978340-pod-delete
+Name:         schedule-pod-delete-1619978340-pod-delete
+Namespace:    default
+Labels:       app.kubernetes.io/component=experiment-job
+              app.kubernetes.io/part-of=litmus
+              app.kubernetes.io/version=1.13.3
+              chaosUID=42b12823-c268-4e37-bee3-70ed014a4aaa
+              controller-uid=40b8d43b-ba54-471a-8bce-ee9938b2d147
+              job-name=pod-delete-wknfbw
+              name=schedule-pod-delete-1619978340-pod-delete
+Annotations:  <none>
+API Version:  litmuschaos.io/v1alpha1
+Kind:         ChaosResult
+Metadata:
+  Creation Timestamp:  2021-05-02T17:59:58Z
+  Generation:          2
+  Managed Fields:
+    API Version:  litmuschaos.io/v1alpha1
+    Fields Type:  FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:labels:
+          .:
+          f:app.kubernetes.io/component:
+          f:app.kubernetes.io/part-of:
+          f:app.kubernetes.io/version:
+          f:chaosUID:
+          f:controller-uid:
+          f:job-name:
+          f:name:
+      f:spec:
+        .:
+        f:engine:
+        f:experiment:
+      f:status:
+        .:
+        f:experimentStatus:
+        f:history:
+    Manager:         experiments
+    Operation:       Update
+    Time:            2021-05-02T17:59:58Z
+  Resource Version:  2637459
+  Self Link:         /apis/litmuschaos.io/v1alpha1/namespaces/default/chaosresults/schedule-pod-delete-1619978340-pod-delete
+  UID:               1400957c-31c7-4605-bcc1-a88083715ab8
+Spec:
+  Engine:      schedule-pod-delete-1619978340
+  Experiment:  pod-delete
+Status:
+  Experiment Status:
+    Fail Step:                 N/A
+    Phase:                     Completed
+    Probe Success Percentage:  100
+    Verdict:                   Pass
+  History:
+      Failed Runs:   0
+    Passed Runs:   1
+    Stopped Runs:  0
+Events:            <none>
+
+kubectl describe chaosresult schedule-pod-ram-1619978340-pod-memory-hog
+Name:         schedule-pod-ram-1619978340-pod-memory-hog
+Namespace:    default
+Labels:       app.kubernetes.io/component=experiment-job
+              app.kubernetes.io/part-of=litmus
+              app.kubernetes.io/version=1.13.3
+              chaosUID=49281ec9-9a27-4d46-813c-40380c581eae
+              controller-uid=58763d76-7848-4992-83d0-26b9c9487316
+              job-name=pod-memory-hog-0hx5nh
+              name=schedule-pod-ram-1619978340-pod-memory-hog
+Annotations:  <none>
+API Version:  litmuschaos.io/v1alpha1
+Kind:         ChaosResult
+Metadata:
+  Creation Timestamp:  2021-05-02T17:59:13Z
+  Generation:          2
+  Managed Fields:
+    API Version:  litmuschaos.io/v1alpha1
+    Fields Type:  FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:labels:
+          .:
+          f:app.kubernetes.io/component:
+          f:app.kubernetes.io/part-of:
+          f:app.kubernetes.io/version:
+          f:chaosUID:
+          f:controller-uid:
+          f:job-name:
+          f:name:
+      f:spec:
+        .:
+        f:engine:
+        f:experiment:
+      f:status:
+        .:
+        f:experimentStatus:
+        f:history:
+    Manager:         experiments
+    Operation:       Update
+    Time:            2021-05-02T17:59:13Z
+  Resource Version:  2636707
+  Self Link:         /apis/litmuschaos.io/v1alpha1/namespaces/default/chaosresults/schedule-pod-ram-1619978340-pod-memory-hog
+  UID:               87e55662-0d4a-47a3-9539-b707a117a7ac
+Spec:
+  Engine:      schedule-pod-ram-1619978340
+  Experiment:  pod-memory-hog
+Status:
+  Experiment Status:
+    Fail Step:                 N/A
+    Phase:                     Completed
+    Probe Success Percentage:  100
+    Verdict:                   Pass
+  History:
+      Failed Runs:   0
+    Passed Runs:   1
+    Stopped Runs:  0
+Events:            <none>
