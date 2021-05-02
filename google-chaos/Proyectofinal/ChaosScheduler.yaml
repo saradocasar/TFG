@@ -1,0 +1,210 @@
+apiVersion: litmuschaos.io/v1alpha1
+kind: ChaosSchedule
+metadata:
+  name: schedule-pod-delete
+spec:
+  schedule:
+    now: true
+  engineTemplateSpec:
+    appinfo:
+      appns: 'default'
+      applabel: 'app=cartservice'
+      appkind: 'deployment'
+    annotationCheck: 'true'
+    engineState: 'active'
+    chaosServiceAccount: pod-delete-sa
+    monitoring: false
+    jobCleanUpPolicy: 'delete'
+    experiments:
+      - name: pod-delete
+        spec:
+          components:
+            env:
+              # set chaos duration (in sec) as desired
+              - name: TOTAL_CHAOS_DURATION
+                value: '30'
+
+              # set chaos interval (in sec) as desired
+              - name: CHAOS_INTERVAL
+                value: '10'
+
+              # pod failures without '--force' & default terminationGracePeriodSeconds
+              - name: FORCE
+                value: 'false'
+---
+apiVersion: litmuschaos.io/v1alpha1
+kind: ChaosSchedule
+metadata:
+  name: schedule-pod-ram
+spec:
+  schedule:
+    now: true
+  engineTemplateSpec:
+    appinfo:
+      appns: 'default'
+      applabel: 'app=shippingservice'
+      appkind: 'deployment'
+    annotationCheck: 'true'
+    engineState: 'active'
+    chaosServiceAccount: pod-memory-hog-sa
+    monitoring: false
+    jobCleanUpPolicy: 'delete'
+    experiments:
+    - name: pod-memory-hog
+      spec:
+        components:
+          env:
+            # Enter the amount of memory in megabytes to be consumed by the application pod
+            - name: MEMORY_CONSUMPTION
+              value: '130'
+
+            - name: TOTAL_CHAOS_DURATION
+              value: '60' # in seconds
+---
+apiVersion: litmuschaos.io/v1alpha1
+kind: ChaosSchedule
+metadata:
+  name: schedule-pod-cpu
+spec:
+  schedule:
+    now: true
+  engineTemplateSpec:
+    appinfo:
+      appns: 'default'
+      applabel: 'app=emailservice'
+      appkind: 'deployment'
+    annotationCheck: 'true'
+    engineState: 'active'
+    chaosServiceAccount: pod-cpu-hog-sa
+    monitoring: false
+    jobCleanUpPolicy: 'delete'
+   experiments:
+    - name: pod-cpu-hog
+      spec:
+        components:
+          env:
+            #number of cpu cores to be consumed
+            #verify the resources the app has been launched with
+            - name: CPU_CORES
+              value: '1'
+
+            - name: TOTAL_CHAOS_DURATION
+              value: '60' # in seconds
+ ---
+ apiVersion: litmuschaos.io/v1alpha1
+kind: ChaosSchedule
+metadata:
+  name: schedule-net-loss
+spec:
+  schedule:
+    now: true
+  engineTemplateSpec:
+    appinfo:
+      appns: 'default'
+      applabel: 'app=adservice'
+      appkind: 'deployment'
+    annotationCheck: 'true'
+    engineState: 'active'
+    chaosServiceAccount: pod-network-loss-sa
+    monitoring: false
+    jobCleanUpPolicy: 'delete'
+    experiments:
+    - name: pod-network-loss
+      spec:
+        components:
+          env:
+
+            #Network interface inside target container
+            - name: NETWORK_INTERFACE
+              value: 'eth0'    
+
+            - name: NETWORK_PACKET_LOSS_PERCENTAGE
+              value: '100'
+
+            - name: TOTAL_CHAOS_DURATION
+              value: '60' # in seconds
+
+            # provide the name of container runtime
+            # for litmus LIB, it supports docker, containerd, crio
+            # for pumba LIB, it supports docker only
+            - name: CONTAINER_RUNTIME
+              value: 'docker'
+
+            # provide the socket file path
+            - name: SOCKET_PATH
+              value: '/var/run/docker.sock'
+  ---
+  apiVersion: litmuschaos.io/v1alpha1
+kind: ChaosSchedule
+metadata:
+  name: schedule-net-latency
+spec:
+  schedule:
+    now: true
+  engineTemplateSpec:
+    appinfo:
+      appns: 'default'
+      applabel: 'app=productcatalogservice'
+      appkind: 'deployment'
+    annotationCheck: 'true'
+    engineState: 'active'
+    chaosServiceAccount: pod-network-latency-sa
+    monitoring: false
+    jobCleanUpPolicy: 'delete'
+    experiments:
+    - name: pod-network-latency
+      spec:
+        components:
+          env:
+            #Network interface inside target container
+            - name: NETWORK_INTERFACE
+              value: 'eth0'     
+
+            - name: NETWORK_LATENCY
+              value: '2000'
+
+            - name: TOTAL_CHAOS_DURATION
+              value: '60' # in seconds
+
+            # provide the name of container runtime
+            # for litmus LIB, it supports docker, containerd, crio
+            # for pumba LIB, it supports docker only
+            - name: CONTAINER_RUNTIME
+              value: 'docker'
+
+            # provide the socket file path
+            - name: SOCKET_PATH
+              value: '/var/run/docker.sock'
+  ---
+  apiVersion: litmuschaos.io/v1alpha1
+kind: ChaosSchedule
+metadata:
+  name: schedule-docker-kill
+spec:
+  schedule:
+    now: true
+  engineTemplateSpec:
+    appinfo:
+      appns: 'default'
+      applabel: 'app=frontend'
+      appkind: 'deployment'
+    annotationCheck: 'true'
+    engineState: 'active'
+    chaosServiceAccount: docker-service-kill-sa
+    monitoring: false
+    jobCleanUpPolicy: 'delete'
+    experiments:
+    - name: docker-service-kill
+      spec:
+        components:
+        # nodeSelector: 
+        #   # provide the node labels
+        #   kubernetes.io/hostname: 'node02'
+          env:
+            # set chaos duration (in sec) as desired
+            - name: TOTAL_CHAOS_DURATION
+              value: '90'
+
+             # provide the actual name of node under test
+            - name: APP_NODE
+              value: 'node-01'
