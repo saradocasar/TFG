@@ -87,11 +87,11 @@ spec:
             #verify the resources the app has been launched with
             - name: CPU_CORES
               value: '1'
-
+              
             - name: TOTAL_CHAOS_DURATION
               value: '60' # in seconds
- ---
- apiVersion: litmuschaos.io/v1alpha1
+---
+apiVersion: litmuschaos.io/v1alpha1
 kind: ChaosSchedule
 metadata:
   name: schedule-net-loss
@@ -133,8 +133,8 @@ spec:
             # provide the socket file path
             - name: SOCKET_PATH
               value: '/var/run/docker.sock'
-  ---
-  apiVersion: litmuschaos.io/v1alpha1
+---
+apiVersion: litmuschaos.io/v1alpha1
 kind: ChaosSchedule
 metadata:
   name: schedule-net-latency
@@ -175,8 +175,8 @@ spec:
             # provide the socket file path
             - name: SOCKET_PATH
               value: '/var/run/docker.sock'
-  ---
-  apiVersion: litmuschaos.io/v1alpha1
+---
+apiVersion: litmuschaos.io/v1alpha1
 kind: ChaosSchedule
 metadata:
   name: schedule-docker-kill
