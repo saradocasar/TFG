@@ -32,6 +32,3 @@ spec:
               # pod failures without '--force' & default terminationGracePeriodSeconds
               - name: FORCE
                 value: 'false'
-                
-              - name: TARGET_PODS
-                value: 'cartservice-6fc79c6d86-9tdg8'
