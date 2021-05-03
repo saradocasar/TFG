@@ -1,0 +1,27 @@
+La monitorización se realiza con New Relic (Prometheus)
+
+Los pods despues del experimento:
+adservice-6b74979749-cn8lk               1/1     Running   0          134m
+cartservice-6fc79c6d86-9cg2k             1/1     Running   0          4m26s
+checkoutservice-7c95787547-s6x5j         1/1     Running   0          134m
+currencyservice-67674dbdf7-54tsx         1/1     Running   0          134m
+emailservice-799966ff9f-hlfr2            1/1     Running   0          134m
+frontend-597d957cdf-4bbnv                1/1     Running   16         134m
+loadgenerator-88f7dbff5-nstr5            1/1     Running   3          134m
+paymentservice-5bdd645d9f-862fm          1/1     Running   0          134m
+productcatalogservice-7ffbf4fbf5-j2k4f   1/1     Running   0          134m
+recommendationservice-599dfdc445-vfmfs   1/1     Running   0          134m
+redis-cart-57bd646894-2qhpw              1/1     Running   0          134m
+shippingservice-5f4d856dc-rp5tl          1/1     Running   1          134m
+
+
+Link a los events:
+https://one.nr/0znQxP2eJQV
+https://one.nr/0NgR70BPkjo
+
+Link a los logs:
+https://one.nr/0GbRmO4yrQy
+
+Grafica que muestra que se ha consumido mucha cpu de emailservice: 3 mayo de 12:30-14:00 formato UTC, horario español de 14:30 a 16:00
+https://chart-embed.service.eu.newrelic.com/herald/65e57bcb-2ebb-461c-b51a-a71f05d79d57?height=400px&timepicker=true
+
