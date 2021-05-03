@@ -25,3 +25,4 @@ https://one.nr/0GbRmO4yrQy
 Grafica que muestra que se ha consumido mucha cpu de emailservice: 3 mayo de 12:30-14:00 formato UTC, horario español de 14:30 a 16:00
 https://chart-embed.service.eu.newrelic.com/herald/65e57bcb-2ebb-461c-b51a-a71f05d79d57?height=400px&timepicker=true
 
+Link dashboard de monitorizacion: https://one.nr/0bEjONld0R6
