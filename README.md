@@ -2,19 +2,19 @@
 
 Despliegue del escenario basado en microservicios de Google: microservices-demo en Kubernetes para aplicar Chaos Computing en GKE con la herramienta Litmus. 
 
-**1º Desplegamos el escenario.**
+**Desplegamos el escenario.**
 
 kubectl apply -f archivoescenario.yaml
 
-**2º Creamos el archivo que dará permisos al experimento para poder realizar las modificaciones sobre el escenario para generar el chaos. A este documento lo llamamos Permisos.yaml**
+**Creamos el archivo que dará permisos al experimento para poder realizar las modificaciones sobre el escenario para generar el chaos. A este documento lo llamamos Permisos.yaml**
 
 kubectl apply -f Permisos.yaml
 
-**3º Añadir esta linea antes de crear el experimento a los deployments que se les inyectará el Chaos.**
+**Añadir esta linea antes de crear el experimento a los deployments que se les inyectará el Chaos.**
 
 kubectl annotate deploy/nombredeployment litmuschaos.io/chaos="true" -n nombrenamespace
 
-**4º Por último, creamos el archivo del experimento al que llamaremos ChaosScheduler.yaml. Asegurarse de que trabaja sobre el namespace del escenario, así como especificar bien las labels.**
+**Por último, creamos el archivo del experimento al que llamaremos ChaosScheduler.yaml. Asegurarse de que trabaja sobre el namespace del escenario, así como especificar bien las labels.**
 
 kubectl apply -f ChaosScheduler.yaml
 
