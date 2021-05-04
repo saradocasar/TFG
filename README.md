@@ -1,5 +1,6 @@
 # TFG
-Despliegue de escenarios en Kubernetes para aplicar Chaos Computing en GKE con la herramienta Litmus
+
+Despliegue del escenario basado en microservicios de Google: microservices-demo en Kubernetes para aplicar Chaos Computing en GKE con la herramienta Litmus. 
 
 ## Desplegar un escenario y experimento.
 
