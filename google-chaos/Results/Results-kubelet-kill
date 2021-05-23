@@ -1,0 +1,62 @@
+ kubectl describe chaosresult kubelet-kill-kubelet-service-kill
+Name:         kubelet-kill-kubelet-service-kill
+Namespace:    default
+Labels:       app.kubernetes.io/component=experiment-job
+              app.kubernetes.io/part-of=litmus
+              app.kubernetes.io/version=1.13.5
+              chaosUID=664ae173-eba9-411b-905b-dafc26802a66
+              controller-uid=1c916055-4549-4350-81b8-79560964678b
+              job-name=kubelet-service-kill-6h9upr
+              name=kubelet-kill-kubelet-service-kill
+Annotations:  <none>
+API Version:  litmuschaos.io/v1alpha1
+Kind:         ChaosResult
+Metadata:
+  Creation Timestamp:  2021-05-23T11:08:13Z
+  Generation:          2
+  Managed Fields:
+    API Version:  litmuschaos.io/v1alpha1
+    Fields Type:  FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:labels:
+          .:
+          f:app.kubernetes.io/component:
+          f:app.kubernetes.io/part-of:
+          f:app.kubernetes.io/version:
+          f:chaosUID:
+          f:controller-uid:
+          f:job-name:
+          f:name:
+      f:spec:
+        .:
+        f:engine:
+        f:experiment:
+      f:status:
+        .:
+        f:experimentStatus:
+        f:history:
+    Manager:         experiments
+    Operation:       Update
+    Time:            2021-05-23T11:08:13Z
+  Resource Version:  5127
+  Self Link:         /apis/litmuschaos.io/v1alpha1/namespaces/default/chaosresults/kubelet-kill-kubelet-service-kill
+  UID:               8192e364-ebf3-49f1-8dd3-dea1a26f066f
+Spec:
+  Engine:      kubelet-kill
+  Experiment:  kubelet-service-kill
+Status:
+  Experiment Status:
+    Fail Step:                 N/A
+    Phase:                     Completed
+    Probe Success Percentage:  100
+    Verdict:                   Pass
+  History:
+    Failed Runs:   0
+    Passed Runs:   1
+    Stopped Runs:  0
+Events:
+  Type    Reason   Age    From                               Message
+  ----    ------   ----   ----                               -------
+  Normal  Awaited  6m32s  kubelet-service-kill-6h9upr-dt25m  experiment: kubelet-service-kill, Result: Awaited
+  Normal  Pass     4m26s  kubelet-service-kill-6h9upr-dt25m  experiment: kubelet-service-kill, Result: Pass
