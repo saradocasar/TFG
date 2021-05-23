@@ -60,3 +60,25 @@ Events:
   ----    ------   ----   ----                               -------
   Normal  Awaited  6m32s  kubelet-service-kill-6h9upr-dt25m  experiment: kubelet-service-kill, Result: Awaited
   Normal  Pass     4m26s  kubelet-service-kill-6h9upr-dt25m  experiment: kubelet-service-kill, Result: Pass
+  
+  Events:
+  Type     Reason                   Age                  From             Message
+  ----     ------                   ----                 ----             -------
+  Normal   Starting                 27m                  kubelet          Starting kubelet.
+  Warning  InvalidDiskCapacity      27m                  kubelet          invalid capacity 0 on image filesystem
+  Normal   NodeHasSufficientMemory  27m (x7 over 27m)    kubelet          Node gke-tfg-graphics-default-pool-68de6796-c8bw status is now: NodeHasSufficientMemory
+  Normal   NodeHasNoDiskPressure    27m (x7 over 27m)    kubelet          Node gke-tfg-graphics-default-pool-68de6796-c8bw status is now: NodeHasNoDiskPressure
+  Normal   NodeAllocatableEnforced  27m                  kubelet          Updated Node Allocatable limit across pods
+  Normal   NodeHasSufficientPID     27m (x8 over 27m)    kubelet          Node gke-tfg-graphics-default-pool-68de6796-c8bw status is now: NodeHasSufficientPID
+  Normal   Starting                 26m                  kube-proxy       Starting kube-proxy.
+  Warning  ContainerdStart          26m (x2 over 26m)    systemd-monitor  Starting containerd container runtime...
+  Warning  DockerStart              26m (x3 over 26m)    systemd-monitor  Starting Docker Application Container Engine...
+  Warning  NodeSysctlChange         26m                  sysctl-monitor
+  Normal   NodeNotReady             17m                  kubelet          Node gke-tfg-graphics-default-pool-68de6796-c8bw status is now: NodeNotReady
+  Normal   Starting                 17m                  kubelet          Starting kubelet.
+  Warning  InvalidDiskCapacity      17m                  kubelet          invalid capacity 0 on image filesystem
+  Normal   NodeAllocatableEnforced  17m                  kubelet          Updated Node Allocatable limit across pods
+  Normal   NodeHasNoDiskPressure    17m (x2 over 17m)    kubelet          Node gke-tfg-graphics-default-pool-68de6796-c8bw status is now: NodeHasNoDiskPressure
+  Normal   NodeHasSufficientPID     17m (x2 over 17m)    kubelet          Node gke-tfg-graphics-default-pool-68de6796-c8bw status is now: NodeHasSufficientPID
+  Normal   NodeHasSufficientMemory  17m (x2 over 17m)    kubelet          Node gke-tfg-graphics-default-pool-68de6796-c8bw status is now: NodeHasSufficientMemory
+  Normal   NodeReady                17m                  kubelet          Node gke-tfg-graphics-default-pool-68de6796-c8bw status is now: NodeReady
