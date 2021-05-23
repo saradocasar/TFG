@@ -20,9 +20,9 @@ spec:
     - name: node-taint
       spec:
         components:
-        # nodeSelector: 
+          nodeSelector: 
         #   # provide the node labels
-        #   kubernetes.io/hostname: 'node02'        
+              kubernetes.io/hostname: 'gke-tfg-graphics-default-pool-68de6796-c8bw'      
           env:
             # set target node name
             - name: TARGET_NODE
