@@ -1,11 +1,8 @@
 apiVersion: litmuschaos.io/v1alpha1
-kind: ChaosSchedule
+kind: ChaosEngine
 metadata:
   name: schedule-docker-kill
 spec:
-  schedule:
-    now: true
-  engineTemplateSpec:
     appinfo:
       appns: 'default'
       applabel: 'app=frontend'
@@ -19,14 +16,14 @@ spec:
     - name: docker-service-kill
       spec:
         components:
-        # nodeSelector: 
+          nodeSelector: 
         #   # provide the node labels
-        #   kubernetes.io/hostname: 'node02'
+              kubernetes.io/hostname: 'gke-tfg-graphics-default-pool-68de6796-c8bw'
           env:
             # set chaos duration (in sec) as desired
             - name: TOTAL_CHAOS_DURATION
-              value: '90'
+              value: '120'
 
              # provide the actual name of node under test
             - name: APP_NODE
-              value: 'node-01'
+              value: 'gke-tfg-graphics-default-pool-68de6796-c8bw'
