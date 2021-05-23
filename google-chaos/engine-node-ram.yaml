@@ -27,8 +27,8 @@ spec:
 
             ## Specify the size as percent of total node capacity Ex: '30'
             ## Note: For consuming memory in mebibytes change the variable to MEMORY_CONSUMPTION_MEBIBYTES
-            - name: MEMORY_CONSUMPTION_PERCENTAGE
-              value: '50'
+            - name: MEMORY_CONSUMPTION_MEBIBYTES
+              value: '2046'
             
             # ENTER THE COMMA SEPARATED TARGET NODES NAME
             - name: TARGET_NODES
