@@ -6,9 +6,9 @@ spec:
   schedule:
     repeat:
       timeRange:
-        # Hora española: 24 de mayo a las 18:10:00 hasta las 20:00:00
-        startTime: "2021-05-04T16:10:00Z"   
-        endTime: "2021-05-04T18:00:00Z"   
+        # Hora española: 2 de mayo a las 18:10:00 hasta las 20:00:00
+        startTime: "2021-05-02T16:10:00Z"   
+        endTime: "2021-05-02T18:00:00Z"   
       properties:
         # Every hour 
         minChaosInterval: "1h"
